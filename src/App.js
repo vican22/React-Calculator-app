@@ -39,7 +39,7 @@ class App extends Component {
   inputDigit(digit) {
     // console.log(digit);
     const newValue = this.state.displayValue;
-    console.log(newValue);
+    // console.log(newValue);
 
     if (this.state.waitingForSecondOperand === true) {
       this.setState({
@@ -89,6 +89,7 @@ class App extends Component {
     const newValue = parseFloat(inputValue);
     // console.log(newValue);
 
+    //ako je vec unesen operator i drugi je na true mijenjam operator s novim
     if (this.state.operator && this.state.waitingForSecondOperand) {
       this.setState({
         operator: nextOperator
@@ -118,6 +119,7 @@ class App extends Component {
     });
   }
 
+  //funkcija za pracenje akcija
   handleInput = event => {
     //console.log(event.target);
     const { target } = event;
