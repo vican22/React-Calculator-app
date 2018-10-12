@@ -21,7 +21,7 @@ const performCalculation = {
 
   "-": (firstOperand, secondOperand) => firstOperand - secondOperand,
 
-  "%": (firstOperand, secondOperand) => (secondOperand / firstOperand) * 100,
+  "%": (firstOperand, secondOperand) => (firstOperand / 100) * secondOperand,
 
   // "+/-": (firstOperand, secondOperand) => firstOperand * -1,
 
