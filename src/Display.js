@@ -1,17 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Display.css";
 
-class Display extends Component {
-  render() {
-    return (
-      <input
-        type="text"
-        className="calculator-screen"
-        value={this.props.value}
-        disabled
-      />
-    );
-  }
-}
+const display = props => {
+  return (
+    <input
+      type="text"
+      className="calculator-screen"
+      value={props.value}
+      disabled
+    />
+  );
+};
 
-export default Display;
+export default display;
