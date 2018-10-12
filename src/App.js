@@ -23,7 +23,7 @@ const performCalculation = {
 
   "%": (firstOperand, secondOperand) => (secondOperand / firstOperand) * 100,
 
-  "+/-": (firstOperand, secondOperand) => firstOperand * -1,
+  // "+/-": (firstOperand, secondOperand) => firstOperand * -1,
 
   "=": (firstOperand, secondOperand) => secondOperand
 };
@@ -84,6 +84,15 @@ class App extends Component {
     });
   }
 
+  changeSign() {
+    const displayValue = this.state.displayValue;
+    if (displayValue !== "0") {
+      this.setState({
+        displayValue: "-" + displayValue
+      });
+    }
+  }
+
   handleOperator(nextOperator) {
     const inputValue = this.state.displayValue;
     const newValue = parseFloat(inputValue);
@@ -108,7 +117,8 @@ class App extends Component {
       );
 
       this.setState({
-        displayValue: String(result),
+        //max 10 digits
+        displayValue: String(result).slice(0, 10),
         firstOperand: result
       });
     }
@@ -143,6 +153,12 @@ class App extends Component {
     if (target.classList.contains("all-clear")) {
       //console.log("all clear", target.value);
       this.resetCalculator();
+      return;
+    }
+
+    if (target.classList.contains("alg-sign")) {
+      //console.log("alg-sign", target.value);
+      this.changeSign();
       return;
     }
 

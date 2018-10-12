@@ -18,7 +18,7 @@ class Button extends Component {
         <button
           onClick={this.props.onClick}
           type="button"
-          className="operator"
+          className="alg-sign"
           value="+/-"
           style={{ backgroundColor: "gray", color: "white" }}
         >
