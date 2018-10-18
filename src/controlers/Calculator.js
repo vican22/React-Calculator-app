@@ -133,39 +133,47 @@ class Calculator extends Component {
 
   //funkcija za pracenje akcija
   handleInput = event => {
-    //console.log(event.target);
-    const { target } = event;
+    const option = event.target.innerHTML;
+    //console.log(event.target.innerHTML);
+    //const { target } = event;
 
-    if (!target.matches("button")) {
+    if (!option) {
       return;
     }
 
-    if (target.classList.contains("operator")) {
+    if (
+      option === "+" ||
+      option === "-" ||
+      option === "*" ||
+      option === "/" ||
+      option === "=" ||
+      option === "%"
+    ) {
       //console.log("operator", target.value);
-      this.handleOperator(target.value);
+      this.handleOperator(option);
       return;
     }
 
-    if (target.classList.contains("decimal")) {
+    if (option === ".") {
       //console.log("decimal", target.value);
-      this.inputDecimal(target.value);
+      this.inputDecimal(option);
       return;
     }
 
-    if (target.classList.contains("all-clear")) {
+    if (option === "AC") {
       //console.log("all clear", target.value);
       this.resetCalculator();
       return;
     }
 
-    if (target.classList.contains("alg-sign")) {
+    if (option === "+/-") {
       //console.log("alg-sign", target.value);
       this.changeSign();
       return;
     }
 
     //console.log("digits", target.value);
-    this.inputDigit(target.value);
+    this.inputDigit(option);
   };
   render() {
     return (
